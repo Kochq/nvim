@@ -67,6 +67,7 @@ Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
 Plug 'sirver/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'mhinz/vim-signify'
+Plug 'kaicataldo/material.vim', { 'branch': 'main' }
 
 let g:UltiSnipsExpandTrigger="<c-e>"
 let g:UltiSnipsJumpForwardTrigger="<c-w>"
@@ -80,12 +81,14 @@ let ayucolor="mirage"
 let g:gruvbox_cotrast_dark = "hard"
 let g:tokyonight_style = 'storm' " available: night, storm
 let g:tokyonight_enable_italic = 1
+let g:material_terminal_italics = 1
+let g:material_theme_style = 'ocean'
 "let g:gruvbox_transparent_bg=1 
 "configs para los temas
 
-colorscheme gruvbox
+colorscheme material
 let g:lightline = {}
-let g:lightline.colorscheme = 'gruvbox'
+let g:lightline.colorscheme = 'material'
 "Seleccionar tema
 
 "autocmd VimEnter * hi Normal ctermbg=NONE guibg=NONE
@@ -95,7 +98,7 @@ let g:lightline.colorscheme = 'gruvbox'
 nnoremap <c-t> :split<CR>:ter<CR>:resize 13<CR>
 
 nnoremap <leader>s :w<CR> 
-nnoremap <leader>n :NERDTreeFind<CR>
+nnoremap <leader>n :NERDTreeToggle<CR>
 nnoremap <leader>+ :e $MYVIMRC<CR> 
 nnoremap <leader>q :q<CR>
 nnoremap <leader>Q :q!<CR>
