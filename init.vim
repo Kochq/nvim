@@ -83,7 +83,7 @@ let g:tokyonight_style = 'storm' " available: night, storm
 let g:tokyonight_enable_italic = 1
 let g:material_terminal_italics = 1
 let g:material_theme_style = 'ocean'
-"let g:gruvbox_transparent_bg=1 
+"let g:gruvbox_transparent_bg=1
 "configs para los temas
 
 colorscheme material
@@ -102,8 +102,8 @@ nnoremap <leader>n :NERDTreeToggle<CR>
 nnoremap <leader>+ :e $MYVIMRC<CR> 
 nnoremap <leader>q :q<CR>
 nnoremap <leader>Q :q!<CR>
-nnoremap <leader>l :tabnext<CR>
-nnoremap <leader>h :tabprevious<CR>
+nnoremap <leader>k :tabnext<CR>
+nnoremap <leader>j :tabprevious<CR>
 nnoremap <leader>d :bdelete<CR>
 nnoremap <leader>t :tabe<CR>
 nnoremap <leader>v :vsp<CR>
