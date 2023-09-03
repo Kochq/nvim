@@ -47,26 +47,29 @@ set guifont="Caskaydia Cove Nerd Font Mono"
 
 call plug#begin('~/.local/share/nvim/plugged')
 
-Plug 'morhetz/gruvbox'
-Plug 'ayu-theme/ayu-vim'
-Plug 'joshdick/onedark.vim'
-Plug 'ghifarit53/tokyonight-vim'
-Plug 'preservim/nerdtree'
-Plug 'ryanoasis/vim-devicons'
 Plug 'sheerun/vim-polyglot'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'itchyny/lightline.vim'
-Plug 'shinchu/lightline-gruvbox.vim'
 Plug 'chun-yang/auto-pairs'
 Plug 'alvan/vim-closetag'
 Plug 'yggdroot/indentline'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
 Plug 'sirver/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'mhinz/vim-signify'
+Plug 'preservim/nerdtree'
+Plug 'tpope/vim-surround'
+
+"Colors
+"Plug 'morhetz/gruvbox'
+"Plug 'ayu-theme/ayu-vim'
+"Plug 'joshdick/onedark.vim'
+"Plug 'itchyny/lightline.vim'
+Plug 'ryanoasis/vim-devicons'
+"Plug 'ghifarit53/tokyonight-vim'
+"Plug 'shinchu/lightline-gruvbox.vim'
+"Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
 Plug 'kaicataldo/material.vim', { 'branch': 'main' }
 
 let g:UltiSnipsExpandTrigger="<c-e>"
@@ -108,6 +111,7 @@ nnoremap <leader>d :bdelete<CR>
 nnoremap <leader>t :tabe<CR>
 nnoremap <leader>v :vsp<CR>
 nnoremap <leader><s-n> :horizontal resize +5<CR>
+nnoremap <leader><s-j> :vertical resize +5<CR>
 nnoremap <leader>fs :Files<CR>
 nnoremap <leader>; $a;<Esc>
 nnoremap <leader>bf :Buffers<CR>
