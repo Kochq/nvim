@@ -30,7 +30,7 @@ set nobackup
 set incsearch
 set ignorecase
 "Cosas para buscar
-set clipboard=unnamedplus
+
 "Copiar y pegar dentro y fuera de vim
 set encoding=UTF-8
 set cursorline
@@ -38,10 +38,21 @@ set termguicolors
 "Poner temas
 set updatetime=100
 "Signify
+set clipboard+=unnamedplus
 
 "set colorcolumn=80
 "highlight ColoColumn ctermbg=0 guibg=lightgrey 
 "Linea de la derecha
+
+set nocp
+if version >= 600
+  filetype plugin indent on
+endif
+
+augroup VimStartup:
+  au!
+  au VimEnter * if expand("%") == "" | e. | endif
+augroup END
 
 set guifont="Caskaydia Cove Nerd Font Mono"
 
@@ -115,5 +126,13 @@ nnoremap <leader><s-j> :vertical resize +5<CR>
 nnoremap <leader>fs :Files<CR>
 nnoremap <leader>; $a;<Esc>
 nnoremap <leader>bf :Buffers<CR>
+"Compile and run cpp
+nnoremap <leader>c :!g++ %<CR>
+nnoremap <leader>rr :!g++ %<CR>:ter ./a.out<CR>
+"OpenGL linker
+nnoremap <leader>ra :!g++ *.cpp -lglfw3 -lGL -lX11 -lpthread -lXrandr -lXi -ldl -lGLEW<CR>:!./a.out<CR>
+"Side terminals
+nnoremap <leader>r<right> :!g++ %<CR>:vsplit<CR>:ter ./a.out<CR>
+nnoremap <leader>r<down> :!g++ %<CR>:split<CR>:ter ./a.out<CR>
 
 set noshowmode
