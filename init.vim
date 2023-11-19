@@ -71,6 +71,7 @@ Plug 'honza/vim-snippets'
 Plug 'mhinz/vim-signify'
 Plug 'preservim/nerdtree'
 Plug 'tpope/vim-surround'
+Plug 'mbbill/undotree'
 
 "Colors
 "Plug 'morhetz/gruvbox'
@@ -134,5 +135,6 @@ nnoremap <leader>ra :!g++ *.cpp -lglfw3 -lGL -lX11 -lpthread -lXrandr -lXi -ldl 
 "Side terminals
 nnoremap <leader>r<right> :!g++ %<CR>:vsplit<CR>:ter ./a.out<CR>
 nnoremap <leader>r<down> :!g++ %<CR>:split<CR>:ter ./a.out<CR>
+nnoremap <F5> :UndotreeToggle<CR>
 
 set noshowmode
