@@ -35,6 +35,7 @@ set ignorecase
 set encoding=UTF-8
 set cursorline
 set termguicolors
+set incsearch
 "Poner temas
 set updatetime=100
 "Signify
@@ -136,5 +137,13 @@ nnoremap <leader>ra :!g++ *.cpp -lglfw3 -lGL -lX11 -lpthread -lXrandr -lXi -ldl 
 nnoremap <leader>r<right> :!g++ %<CR>:vsplit<CR>:ter ./a.out<CR>
 nnoremap <leader>r<down> :!g++ %<CR>:split<CR>:ter ./a.out<CR>
 nnoremap <F5> :UndotreeToggle<CR>
+"Replace
+nnoremap <leader>c :%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>
+"Move text
+vnoremap J :m '>+1<CR>gv=gv
+vnoremap K :m '<-2<CR>gv=gv
+"Center cursor on ctrl+D and ctrl+B
+nnoremap <C-d> <C-d>zz
+nnoremap <C-u> <C-u>zz
 
 set noshowmode
