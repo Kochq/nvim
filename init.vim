@@ -73,6 +73,7 @@ Plug 'mhinz/vim-signify'
 Plug 'preservim/nerdtree'
 Plug 'tpope/vim-surround'
 Plug 'mbbill/undotree'
+Plug 'tpope/vim-fugitive'
 
 "Colors
 "Plug 'morhetz/gruvbox'
@@ -145,5 +146,7 @@ vnoremap K :m '<-2<CR>gv=gv
 "Center cursor on ctrl+D and ctrl+B
 nnoremap <C-d> <C-d>zz
 nnoremap <C-u> <C-u>zz
+"Indent paragraph
+nnoremap <leader>= <CR>=ip<CR>
 
 set noshowmode
