@@ -74,6 +74,7 @@ Plug 'tpope/vim-surround'
 Plug 'mbbill/undotree'
 Plug 'tpope/vim-fugitive'
 Plug 'github/copilot.vim'
+Plug 'tpope/vim-commentary' "gc to comment
 
 "Colors
 "Plug 'morhetz/gruvbox'
