@@ -5,11 +5,10 @@ syntax on
 set guicursor
 "Block cursor
 
-set nohlsearch
-"
+let g:mapleader = ' ' "Definir Espacio como leader
+let g:relevarDir = "/home/koch/Workspace/Relevar/app"
 
-let g:mapleader = ' ' "Definir , como tecla lide
-"Espacio como mapleader
+set nohlsearch
 set splitbelow
 set splitright
 
@@ -74,12 +73,13 @@ Plug 'preservim/nerdtree'
 Plug 'tpope/vim-surround'
 Plug 'mbbill/undotree'
 Plug 'tpope/vim-fugitive'
+Plug 'github/copilot.vim'
 
 "Colors
 "Plug 'morhetz/gruvbox'
 "Plug 'ayu-theme/ayu-vim'
 "Plug 'joshdick/onedark.vim'
-"Plug 'itchyny/lightline.vim'
+Plug 'itchyny/lightline.vim'
 Plug 'ryanoasis/vim-devicons'
 "Plug 'ghifarit53/tokyonight-vim'
 "Plug 'shinchu/lightline-gruvbox.vim'
@@ -111,10 +111,29 @@ let g:lightline.colorscheme = 'material'
 "autocmd VimEnter * hi Normal ctermbg=NONE guibg=NONE
 "transparent bg for gruvbox
 
-"vnoremap <c-t> :split<CR>:ter<CR>:resize 15<CR>
-nnoremap <c-t> :split<CR>:ter<CR>:resize 13<CR>
+"upload via ftp to relevar if im in the relevar directory
+function! SetKeyBindings()
+    let current_file = expand('%:t')
+    echom current_file
+    let current_path = expand('%:p:h')
 
-nnoremap <leader>s :w<CR> 
+    if current_path =~# g:relevarDir . '/'
+        let relative_path = substitute(current_path, g:relevarDir.'/', '', '')
+        execute 'nnoremap <leader>s :w<CR>:execute "Nwrite ftp://relevar@201.234.19.19/' . fnameescape(relative_path) . '/' . fnameescape(current_file) . '"<CR>'
+    elseif current_path =~# g:relevarDir
+        execute 'nnoremap <leader>s :w<CR>:execute "Nwrite ftp://relevar@201.234.19.19/' . fnameescape(current_file) . '"<CR>'
+    else
+        nnoremap <leader>s :w<CR>
+    endif
+endfunction
+
+" Set up an autocmd to call the function when entering a buffer
+augroup DirectoryKeyBindings
+    autocmd!
+    autocmd BufEnter * call SetKeyBindings()
+augroup END
+
+nnoremap <c-t> :split<CR>:ter<CR>:resize 13<CR>
 nnoremap <leader>n :NERDTreeToggle<CR>
 nnoremap <leader>+ :e $MYVIMRC<CR> 
 nnoremap <leader>q :q<CR>
@@ -127,6 +146,7 @@ nnoremap <leader>v :vsp<CR>
 nnoremap <leader><s-n> :horizontal resize +5<CR>
 nnoremap <leader><s-j> :vertical resize +5<CR>
 nnoremap <leader>fs :Files<CR>
+nnoremap <leader>ws :Rg<CR>
 nnoremap <leader>; $a;<Esc>
 nnoremap <leader>bf :Buffers<CR>
 "Compile and run cpp
@@ -148,5 +168,6 @@ nnoremap <C-d> <C-d>zz
 nnoremap <C-u> <C-u>zz
 "Indent paragraph
 nnoremap <leader>= <CR>=ip<CR>
-
-set noshowmode
+" Copilot
+nnoremap <leader>} :Copilot disable<CR>
+nnoremap <leader>{ :Copilot enable<CR>

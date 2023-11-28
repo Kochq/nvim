@@ -1,0 +1,30 @@
+snippet clg "Console Log"
+console.log(${1:})
+endsnippet
+snippet cl "Console Log"
+console.log(${1:})
+endsnippet
+
+# Functional components
+snippet rfc "react functional component"
+import React, {useState} from "react"
+
+function $1() {
+	return (
+		${2}
+	)
+}
+
+export default $1
+endsnippet
+
+# React Hooks
+snippet state "useState Hook" b
+const [${1}, set$1] = useState(${2})
+endsnippet
+
+snippet effect "useEffect Hook" b
+useEffect(() => {
+	${1:${0}}
+}, [${2}])
+endsnippet
