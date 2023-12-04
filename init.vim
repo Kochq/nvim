@@ -7,6 +7,7 @@ set guicursor
 
 let g:mapleader = ' ' "Definir Espacio como leader
 let g:relevarDir = "/home/koch/Workspace/Relevar/app"
+let g:netrw_ftp_cmd="ftp -p"
 
 set nohlsearch
 set splitbelow
