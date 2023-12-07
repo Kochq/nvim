@@ -153,7 +153,10 @@ nnoremap <leader>; $a;<Esc>
 nnoremap <leader>bf :Buffers<CR>
 "Compile and run cpp
 nnoremap <leader>c :!g++ %<CR>
-nnoremap <leader>rr :!g++ %<CR>:ter ./a.out<CR>
+"CPP
+"nnoremap <leader>rr :!g++ %<CR>:ter ./a.out<CR> 
+"PHP
+nnoremap <leader>rr :ter php %<CR> 
 "OpenGL linker
 nnoremap <leader>ra :!g++ *.cpp -lglfw3 -lGL -lX11 -lpthread -lXrandr -lXi -ldl -lGLEW<CR>:!./a.out<CR>
 "Side terminals
